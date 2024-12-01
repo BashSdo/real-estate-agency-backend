@@ -1,0 +1,25 @@
+[package]
+name = "common"
+version = "0.0.0"
+edition = "2021"
+
+[features]
+## Enables Juniper GraphQL support.
+juniper = ["dep:juniper"]
+## Enables PostgreSQL support.
+postgres = [
+    "dep:postgres-types",
+    "rust_decimal/db-tokio-postgres",
+]
+## Enables Serde support.
+serde = ["dep:serde"]
+
+[dependencies]
+derive_more = { version = "1", features = ["debug", "display", "error"] }
+document-features = "0.2"
+juniper = { version = "0.16", optional = true }
+postgres-types = { version = "0.2", features = ["with-time-0_3"], optional = true }
+rust_decimal = "1"
+serde = { version = "1", optional = true }
+strum = { version = "0.26", features = ["derive"] }
+time = { version = "0.3", features = ["formatting", "parsing", "std"] }

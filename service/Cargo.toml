@@ -1,0 +1,47 @@
+[package]
+name = "service"
+version = "0.0.0"
+edition = "2021"
+
+[features]
+default = ["postgres"]
+## Enables PostgreSQL database infrastructure.
+postgres = [
+    "dep:deadpool-postgres",
+    "dep:itertools",
+    "dep:ouroboros",
+    "dep:postgres-types",
+    "dep:refinery",
+    "dep:refinery-core",
+    "dep:tokio",
+    "dep:tokio-postgres",
+    "common/postgres",
+    "rust_decimal/db-tokio-postgres",
+    "tokio/sync",
+]
+
+[dependencies]
+async-trait = "0.1"
+common = { path = "../common", features = ["serde"] }
+derive_more = { version = "1.0.0-beta.6", features = ["debug", "deref", "display", "from", "from_str", "error"] }
+deadpool-postgres = { version = "0.14", features = ["rt_tokio_1", "serde"], optional = true }
+document-features = "0.2"
+futures = "0.3"
+itertools = { version = "0.13", optional = true }
+jsonwebtoken = "9.3"
+ouroboros = {  version = "0.18", optional = true }
+postgres-types = { version = "0.2", features = ["derive", "with-uuid-1"], optional = true }
+refinery = { version = "0.8", features = ["tokio-postgres"], optional = true }
+refinery-core = { version = "0.8", features = ["tokio-postgres"], optional = true }
+regex = "1.11"
+rust_decimal = "1.36"
+secrecy = "0.10"
+smart-default = "0.7"
+strum = "0.26"
+tokio = { version = "1", default-features = false, features = ["sync"], optional = true }
+tokio-postgres = { version = "0.7", optional = true }
+tracerr = "0.3"
+tracing = "0.1"
+uuid = { version = "1", features = ["serde", "v4"] }
+serde = { version = "1.0.210", features = ["derive"] }
+xxhash-rust = { version = "0.8", features = ["xxh3"] }

@@ -1,0 +1,46 @@
+# Server configuration.
+[server]
+# Host the server listens on.
+host = "0.0.0.0"
+# Port the server listens on.
+port = 8080
+
+# CORS configuration.
+[server.cors]
+# List of origins that are allowed to make requests.
+origins = ["*"]
+
+# Service configuration.
+[service]
+# Secret used to decode and encode JWTs.
+jwt_secret = "secret"
+
+# Configuration of `CleanUnusedRealties` task.
+[service.task.clean_unused_realties]
+# Interval at which the task is executed.
+interval = "1h"
+
+# Database pool configuration.
+[postgres]
+# Host to connect database.
+host = "127.0.0.1"
+# Port to connect database.
+port = 5432
+# Username to use when connecting to the database.
+user = "postgres"
+# Password to use when connecting to the database.
+password = "postgres"
+# Name of the database to connect to.
+dbname = "postgres"
+
+# Logging configuration.
+[log]
+# Maximum logging level.
+#
+# Possible values:
+# - "TRACE"
+# - "DEBUG"
+# - "INFO"
+# - "WARN"
+# - "ERROR"
+level = "INFO"
