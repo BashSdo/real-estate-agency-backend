@@ -3,7 +3,7 @@ backend
 
 [<img alt="github" src="https://img.shields.io/badge/github-BashSdo/real--estate--agency--backend-8da0cb?style=for-the-badge&labelColor=555555&logo=github" height="20">](https://github.com/BashSdo/real-estate-agency-backend)
 
-Backend application for the real estate agency project.
+Backend application for the real estate agency project. Frontend application can be found [here](https://github.com/BashSdo/real-estate-agency-frontend).
 
 # Building
 
